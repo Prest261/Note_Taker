@@ -21,16 +21,23 @@ console.log(data);
 // =============================================================
 
 // Basic route that sends the user first to the index Page
-app.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname, './Develop/public/assets/index.html'));
+app.get('/', (req, res) => {
+	// console.log(res);
+	res.sendFile(path.join(__dirname, './public/assets/index.html'));
 });
 
-app.get('/notes', function(req, res) {
-	res.sendFile(path.join(__dirname, './Develop/public/assets/notes.html'));
+// route that sends the user to the notes page
+app.get('/notes', (req, res) => {
+	res.sendFile(path.join(__dirname, './public/assets/notes.html'));
 });
 
+// route that pulls notes from the db.json file
 app.get('/api/notes', function(req, res) {
-	return res.json(data);
+	fs.readFile('./Develop/db/db.json', (err, data) => {
+		if (err) throw err;
+		console.log('res', res);
+		return res.json(data);
+	});
 });
 
 // Create New Notes - takes in JSON input
