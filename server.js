@@ -7,13 +7,14 @@ const path = require('path');
 // Sets up the Express App
 // =============================================================
 let app = express();
-const PORT = (PORT = process.env.PORT || 8080);
+const PORT = process.env.PORT || 8080;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static(__dirname + '/public'));
 
-let data = JSON.parse(fs.readFileSync('./assets/db.json', 'utf8'));
+let data = JSON.parse(fs.readFileSync('./Develop/db/db.json', 'utf8'));
 console.log(data);
 
 // Routes
@@ -21,11 +22,11 @@ console.log(data);
 
 // Basic route that sends the user first to the index Page
 app.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname, './assets/index.html'));
+	res.sendFile(path.join(__dirname, './Develop/public/assets/index.html'));
 });
 
 app.get('/notes', function(req, res) {
-	res.sendFile(path.join(__dirname, './assets/notes.html'));
+	res.sendFile(path.join(__dirname, './Develop/public/assets/notes.html'));
 });
 
 app.get('/api/notes', function(req, res) {
@@ -45,8 +46,10 @@ app.post('/api/notes', function(req, res) {
 	return res.json(data);
 });
 
+app.delete('/api/notes/:id', function(req, res) {});
+
 function writeNote() {
-	fs.writeFile('./assets/db.json', JSON.stringify(data), (err) => {
+	fs.writeFile('./Develop/db/db.json', JSON.stringify(data), (err) => {
 		if (err) throw err;
 	});
 }
