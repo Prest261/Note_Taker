@@ -5,6 +5,8 @@ This is a web-based application that allows the user to create new notes, look a
 ## Usage
 This application is meant to be a simple note taker for users to keep track of tasks or make notes notes throughout the day. This note taker allows employees to see their notes at a glance, and be able to delete notes as they are completed.
 
+![Note Taker Demo](./noteTakerGIF.gif)
+
 ## Liscense
 
 MIT License
