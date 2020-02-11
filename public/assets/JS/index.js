@@ -26,6 +26,7 @@ var saveNote = function(note) {
 
 // A function for deleting a note from the db
 var deleteNote = function(id) {
+	console.log("delete id:", id)
 	return $.ajax({
 		url: 'api/notes/' + id,
 		method: 'DELETE'
@@ -128,6 +129,7 @@ var renderNoteList = function(notes) {
 // Gets notes from the db and renders them to the sidebar
 var getAndRenderNotes = function() {
 	return getNotes().then(function(data) {
+		console.log('js-getNotes back:', data);
 		renderNoteList(data);
 	});
 };
