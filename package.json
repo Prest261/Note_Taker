@@ -1,0 +1,26 @@
+{
+  "name": "note_taker",
+  "version": "1.0.0",
+  "description": "This is a web-based application that allows the user to create new notes, look at old notes and delete notes.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Prest261/Note_Taker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Prest261/Note_Taker/issues"
+  },
+  "homepage": "https://github.com/Prest261/Note_Taker#readme"
+}
